@@ -75,3 +75,33 @@ where
     and cu.column_name = col.column_name;
     
 Select table_name from information_schema.tables where table_schema = 'classicmodels';
+
+Select * from classicmodels.productlines;
+
+Delete from classicmodels.productlines where productline = 'Car Logo'; commit;
+
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\motor_cycle_rsv4.png")
+, htmlDescription = 'motor_cycle_rsv4'
+where productLine = 'Motorcycles';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\blue_car.png") 
+, htmlDescription = 'blue car'
+where productLine = 'Classic Cars';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\airplane.png") 
+, htmlDescription = 'aero plane'
+where productLine = 'Planes';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\ship.png") 
+, htmlDescription = 'ship image'
+where productLine = 'Ships';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\trains.png") 
+, htmlDescription = 'train image'
+where productLine = 'Trains';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\trucks.png") 
+, htmlDescription = 'truck image'
+where productLine = 'Trucks and Buses';
+Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\vintage_cars.png") 
+, htmlDescription = 'vintage car'
+where productLine = 'Vintage Cars';
+commit;
+
+Insert into classicmodels.productlines values ('Car Logo', 'Car Logo Pic', 'Logo', load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\cognizant_logo.png"));
+commit;
