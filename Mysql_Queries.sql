@@ -78,7 +78,7 @@ Select table_name from information_schema.tables where table_schema = 'classicmo
 
 Select * from classicmodels.productlines;
 
-Delete from classicmodels.productlines where productline = 'Car Logo'; commit;
+Delete from classicmodels.productlines where productline is null ; commit;
 
 Update classicmodels.productlines set image  = load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\motor_cycle_rsv4.png")
 , htmlDescription = 'motor_cycle_rsv4'
