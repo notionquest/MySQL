@@ -105,3 +105,33 @@ commit;
 
 Insert into classicmodels.productlines values ('Car Logo', 'Car Logo Pic', 'Logo', load_File("D:\\Sampath\\MS\\Dissertation\\MySQL\\Models\\cognizant_logo.png"));
 commit;
+
+Select column_name, data_type from information_schema.COLUMNS 
+where table_schema = 'classicmodels' and table_name = 'payments' and column_key = 'PRI';
+
+Select * from information_schema.COLUMNS 
+where table_schema = 'classicmodels' and table_name = 'customers' and column_key is not null;
+
+Select c.* from information_schema.COLUMNS c,  information_schema.TABLE_CONSTRAINTS tc
+where c.c.table_schema = 'classicmodels' and c.table_name = 'customers' and column_key is not null;
+
+Select * from information_schema.TABLE_CONSTRAINTS 
+where table_name = 'customers';
+
+Select * from classicmodels.customers;
+Select * from classicmodels.payments;
+
+select amount, paymentDate, customerNumber, checkNumber from  classicmodels.payments 
+where customerNumber > '103' and checkNumber > 'OM314933' order by customerNumber , checkNumber limit 10;
+
+select concat(cu.table_name, '.', cu.column_name) as 'foreign_table_and_column', 
+cu.table_name as 'foreign_table', cu.column_name as 'foreign_key', 
+concat(cu.referenced_table_name, '.', cu.referenced_column_name) as 'references', 
+cu.constraint_name as 'constraint name', col.data_type as 'data_type', col.column_key as 'column_key' 
+from  information_schema.key_column_usage cu, information_schema.COLUMNS col 
+where referenced_table_name is not null 
+and col.column_key = 'PRI'
+and cu.table_schema = 'classicmodels' and cu.referenced_table_name = 'employees' and 
+cu.table_schema = col.table_schema and cu.table_name = col.table_name;
+
+Select * from information_schema.REFERENTIAL_CONSTRAINTS where referenced_table_name = 'customers';
